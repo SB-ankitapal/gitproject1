@@ -1,0 +1,16 @@
+type: object
+title: model343543
+properties:
+  id:
+    type: string
+  nice:
+    type: string
+  age:
+    type: string
+  very:
+    type: string
+  hellooo:
+    type: string
+required:
+  - id
+  - age
