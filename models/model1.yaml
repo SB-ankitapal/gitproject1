@@ -1,0 +1,25 @@
+title: model1
+x-stoplight:
+  id: qmhd3j6fbn4u1
+type: object
+required:
+  - agwe
+  - fname
+properties:
+  id:
+    type: string
+    x-stoplight:
+      id: 2u4zroolgrc83
+  agwe:
+    type: string
+    x-stoplight:
+      id: z0se1rz81i55u
+    description: 'this is a new '
+  fname:
+    type: string
+    x-stoplight:
+      id: 1dcwkddsn6w7r
+  lname:
+    type: string
+    x-stoplight:
+      id: j7v2k86doryql
