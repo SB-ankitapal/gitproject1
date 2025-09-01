@@ -4,7 +4,7 @@ x-stoplight:
 info:
   title: fghbjnklm
   version: '1.0'
-  description: test
+  description: testdfghjk
 servers:
   - url: 'http://localhost:3000'
 paths:
