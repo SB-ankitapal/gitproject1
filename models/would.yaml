@@ -1,0 +1,24 @@
+title: would
+x-stoplight:
+  id: 9vwm987hujqio
+type: object
+required:
+  - energy
+  - or
+properties:
+  id:
+    type: string
+    x-stoplight:
+      id: oaj3ciri8u15z
+  energy:
+    type: string
+    x-stoplight:
+      id: hp7wx078tfzt7
+  or:
+    type: string
+    x-stoplight:
+      id: xcxfxzf11bh27
+  lazy:
+    type: string
+    x-stoplight:
+      id: fn2l1ence7w54
