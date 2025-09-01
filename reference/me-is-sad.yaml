@@ -29,7 +29,7 @@ paths:
                 Get User Alice Smith:
                   value:
                     id: 142
-                    firstName: Alice
+                    firstName: Alison
                     lastName: Smith
                     email: alice.smith@gmail.com
                     dateOfBirth: '1997-10-31'
