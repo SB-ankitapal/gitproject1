@@ -1,0 +1,9 @@
+title: wdee
+x-stoplight:
+  id: kipvhnoivhv94
+type: object
+properties:
+  id:
+    type: string
+    x-stoplight:
+      id: onaffwiuptqyz
