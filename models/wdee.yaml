@@ -10,3 +10,4 @@ properties:
 description: jhgjjdc nbjh hjdfhjrvhdgfh
 examples:
   - id: string
+x-extension-1: x-extension-2
