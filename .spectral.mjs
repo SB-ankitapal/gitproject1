@@ -1,2 +1,2 @@
-import ruleset from "https://x-20439.stoplight-dev.com/api/v1/projects/cHJqOjQzNA/spectral.js?branch_slug=main&token=e1c292f4-0ace-4f02-ae28-6fe72ed38099";
+import ruleset from "https://integration.stoplight-dev.com/api/v1/projects/cHJqOjcxMTI4MA/spectral.js?branch_slug=main&token=0afbfe79-36a3-4c23-9c42-92c593918de4";
 export default { extends: ruleset };

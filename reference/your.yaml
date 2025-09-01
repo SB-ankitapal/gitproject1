@@ -1,0 +1,287 @@
+openapi: 3.1.0
+x-stoplight:
+  id: royvvnxtv95q1
+info:
+  title: your
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/users/{userId}':
+    parameters:
+      - schema:
+          type: integer
+        name: userId
+        in: path
+        required: true
+        description: Id of an existing user.
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '404':
+          description: User Not Found
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      x-stoplight:
+        id: b9n74ukr82z3g
+    patch:
+      summary: Update User Information
+      operationId: patch-users-userId
+      responses:
+        '200':
+          description: User Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Updated User Rebecca Baker:
+                  value:
+                    id: 13
+                    firstName: Rebecca
+                    lastName: Baker
+                    email: rebecca@gmail.com
+                    dateOfBirth: '1985-10-02'
+                    emailVerified: false
+                    createDate: '2019-08-24'
+        '404':
+          description: User Not Found
+        '409':
+          description: Email Already Taken
+      description: Update the information of an existing user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                dateOfBirth:
+                  type: string
+            examples:
+              Update First Name:
+                value:
+                  firstName: Rebecca
+              Update Email:
+                value:
+                  email: rebecca@gmail.com
+              Update Last Name & Date of Birth:
+                value:
+                  lastName: Baker
+                  dateOfBirth: '1985-10-02'
+        description: Patch user properties to update.
+      x-stoplight:
+        id: eft1vlojgm0zr
+  /user:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                dateOfBirth:
+                  type: string
+                  format: date
+              required:
+                - firstName
+                - lastName
+                - email
+                - dateOfBirth
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      x-stoplight:
+        id: 5mf35ouaxhm7c
+    head:
+      summary: Your HEAD endpoint
+      tags: []
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/x-bittorrent:
+              schema:
+                type: object
+                properties:
+                  yashika:
+                    x-stoplight:
+                      id: uy4185uhk8zyw
+                    oneOf:
+                      - x-stoplight:
+                          id: p6vneg9lr8o34
+                        properties:
+                          shining:
+                            type: string
+                            x-stoplight:
+                              id: cbvdhr6pu3lik
+                      - x-stoplight:
+                          id: 29muvajkp2nda
+                        properties:
+                          star:
+                            type: string
+                            x-stoplight:
+                              id: q9fcsmetwunkm
+                    type: object
+                  bajaj:
+                    type: string
+                    x-stoplight:
+                      id: y1g38na0ht193
+                  name:
+                    type: number
+                    x-stoplight:
+                      id: ckhqmgcc4s47d
+                  me:
+                    type: string
+                    x-stoplight:
+                      id: m8o68tjt8b3sg
+                  smth:
+                    type: object
+                    x-stoplight:
+                      id: wpvbhr2suvjwf
+                    additionalProperties: {}
+      operationId: head-user
+      x-stoplight:
+        id: l0ryk78xl89cb
+      requestBody:
+        content:
+          application/ogg:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  x-stoplight:
+                    id: n2vu5k8migsff
+                age:
+                  $ref: 'https://integration.stoplight-dev.com/api/v1/projects/yashika/new1234/nodes/models/would.yaml?mid=4823'
+                  x-stoplight:
+                    id: wsd8oklgnya77
+                rollno:
+                  type: string
+                  x-stoplight:
+                    id: 0q85s0s1t4kbw
+                student:
+                  type: string
+                  x-stoplight:
+                    id: ylaozw339hmge
+                employee:
+                  type: string
+                  x-stoplight:
+                    id: 6umv9n9h89xcs
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: ipfz7b4ocuewp
+        firstName:
+          type: string
+          x-stoplight:
+            id: lxsgxsmt2q67g
+        lastName:
+          type: string
+          x-stoplight:
+            id: ovf0suu3262y5
+        email:
+          type: string
+          format: email
+          x-stoplight:
+            id: vko0pwfil0bve
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: 3ws3i9skrtaho
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: 5gekfpvl2r2d5
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: 5mybyec0ojmyx
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      x-stoplight:
+        id: iwg7j2yt6fv8f

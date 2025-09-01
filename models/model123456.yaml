@@ -1,0 +1,43 @@
+title: model123456
+x-stoplight:
+  id: 1225vls2pltbh
+type: object
+required:
+  - sibling
+  - or
+  - '????'
+properties:
+  id:
+    type: string
+    x-stoplight:
+      id: wb6bn4otkosmd
+  age:
+    type: string
+    x-stoplight:
+      id: e9lscdvbbwwzf
+    description: |
+      this is a new 
+      parameter
+  twin:
+    type: string
+    x-stoplight:
+      id: wzxen7adyazwj
+  sibling:
+    type: string
+    x-stoplight:
+      id: ptusj4q5nqkl6
+  or:
+    type: string
+    x-stoplight:
+      id: 2ynxmtnm4pv5s
+  '????':
+    type: string
+    x-stoplight:
+      id: lq9tvh64pa4qp
+examples:
+  - id: change
+    age: your
+    twin: life
+    sibling: string
+    or: string
+    '????': string
