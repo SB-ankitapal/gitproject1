@@ -1,0 +1,510 @@
+{
+    "openapi": "3.0.0",
+    "x-stoplight": {
+        "id": "cnzllgts0egl7"
+    },
+    "info": {
+        "title": "apifile",
+        "version": "1.0",
+        "description": "this is a new description for the new api file."
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000"
+        }
+    ],
+    "paths": {
+        "/users/{userId}": {
+            "parameters": [
+                {
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "description": "Id of an existing user."
+                }
+            ],
+            "patch": {
+                "summary": "Update User Information",
+                "operationId": "patch-users-userId",
+                "responses": {
+                    "200": {
+                        "description": "User Updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                },
+                                "examples": {
+                                    "Updated User Rebecca Baker": {
+                                        "value": {
+                                            "id": 13,
+                                            "firstName": "Rebecca",
+                                            "lastName": "Baker",
+                                            "email": "rebecca@gmail.com",
+                                            "dateOfBirth": "1985-10-02",
+                                            "emailVerified": false,
+                                            "createDate": "2019-08-24"
+                                        }
+                                    }
+                                }
+                            },
+                            "application/javascript": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "him": {
+                                            "$ref": "stoplight://resources/overrides/8kxRdpzk9Ps"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "headers": {
+                            "header-0": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User Not Found"
+                    },
+                    "409": {
+                        "description": "Email Already Taken"
+                    }
+                },
+                "description": "Update the information of an existing user.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "description": "If a new email is given, the user's email verified property will be set to false."
+                                    },
+                                    "dateOfBirth": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Update First Name": {
+                                    "value": {
+                                        "firstName": "Rebecca"
+                                    }
+                                },
+                                "Update Email": {
+                                    "value": {
+                                        "email": "rebecca@gmail.com"
+                                    }
+                                },
+                                "Update Last Name & Date of Birth": {
+                                    "value": {
+                                        "lastName": "Baker",
+                                        "dateOfBirth": "1985-10-02"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": "Patch user properties to update."
+                },
+                "x-stoplight": {
+                    "id": "2mtaldzda1xkz"
+                }
+            },
+            "get": {
+                "summary": "Get User Info by User ID",
+                "tags": [],
+                "responses": {
+                    "200": {
+                        "description": "User Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                },
+                                "examples": {
+                                    "Get User Alice Smith": {
+                                        "value": {
+                                            "id": 142,
+                                            "firstName": "Alice",
+                                            "lastName": "Smith",
+                                            "email": "alice.smith@gmail.com",
+                                            "dateOfBirth": "1997-10-31",
+                                            "emailVerified": true,
+                                            "signUpDate": "2019-08-24"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User Not Found"
+                    }
+                },
+                "operationId": "get-users-userId",
+                "description": "Retrieve the information of the user with the matching user ID.",
+                "x-stoplight": {
+                    "id": "58nyvc9y1y80i"
+                },
+                "requestBody": {
+                    "content": {
+                        "application/ogg": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/test": {
+            "get": {
+                "summary": "Your GET endpoint",
+                "tags": [],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "multipart/form-data": {
+                                "schema": {
+                                    "$ref": "../models/newmodel123.yaml"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "get-test",
+                "x-stoplight": {
+                    "id": "fefdlqxq4s7lb"
+                },
+                "requestBody": {
+                    "content": {
+                        "application/atom+xml": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "x-stoplight": {
+                                            "id": "jlg1oip9kvyv5"
+                                        }
+                                    },
+                                    "age": {
+                                        "type": "string",
+                                        "x-stoplight": {
+                                            "id": "keu0qq8tt9t1n"
+                                        }
+                                    },
+                                    "average": {
+                                        "type": "string",
+                                        "x-stoplight": {
+                                            "id": "beqkkgy2xmz20"
+                                        }
+                                    },
+                                    "height": {
+                                        "type": "string",
+                                        "x-stoplight": {
+                                            "id": "s633ddgwl7sa7"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Your PATCH endpoint",
+                "tags": [],
+                "responses": {},
+                "operationId": "patch-test",
+                "x-stoplight": {
+                    "id": "7ndiva93ry73p"
+                }
+            },
+            "delete": {
+                "summary": "Your DELETE endpoint",
+                "tags": [],
+                "responses": {},
+                "operationId": "delete-test",
+                "x-stoplight": {
+                    "id": "8aia8s9m2rwx8"
+                }
+            },
+            "trace": {
+                "summary": "Your TRACE endpoint",
+                "tags": [],
+                "responses": {},
+                "operationId": "trace-test",
+                "x-stoplight": {
+                    "id": "yb8kt9bxtrdiu"
+                }
+            }
+        },
+        "/test_123": {
+            "get": {
+                "summary": "Your GET endpoint",
+                "tags": [],
+                "responses": {},
+                "operationId": "get-test",
+                "x-stoplight": {
+                    "id": "x0p5e6dcntikl"
+                }
+            },
+            "patch": {
+                "summary": "Your PATCH endpoint",
+                "tags": [],
+                "responses": {},
+                "operationId": "patch-test",
+                "x-stoplight": {
+                    "id": "cqozzlvk2b54w"
+                }
+            },
+            "delete": {
+                "summary": "Your DELETE endpoint",
+                "tags": [],
+                "responses": {},
+                "operationId": "delete-test",
+                "x-stoplight": {
+                    "id": "lc6yc72lcwcw4"
+                }
+            },
+            "trace": {
+                "summary": "Your TRACE endpoint",
+                "tags": [],
+                "responses": {},
+                "operationId": "trace-test",
+                "x-stoplight": {
+                    "id": "qk3euxq7oue44"
+                }
+            },
+            "parameters": []
+        },
+        "/user": {
+            "post": {
+                "summary": "Create New User",
+                "operationId": "post-user",
+                "responses": {
+                    "200": {
+                        "description": "User Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                },
+                                "examples": {
+                                    "New User Bob Fellow": {
+                                        "value": {
+                                            "id": 12,
+                                            "firstName": "Bob",
+                                            "lastName": "Fellow",
+                                            "email": "bob.fellow@gmail.com",
+                                            "dateOfBirth": "1996-08-24",
+                                            "emailVerified": false,
+                                            "createDate": "2020-11-18"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Missing Required Information"
+                    },
+                    "409": {
+                        "description": "Email Already Taken"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "dateOfBirth": {
+                                        "type": "string",
+                                        "format": "date"
+                                    }
+                                },
+                                "required": [
+                                    "firstName",
+                                    "lastName",
+                                    "email",
+                                    "dateOfBirth"
+                                ]
+                            },
+                            "examples": {
+                                "Create User Bob Fellow": {
+                                    "value": {
+                                        "firstName": "Bob",
+                                        "lastName": "Fellow",
+                                        "email": "bob.fellow@gmail.com",
+                                        "dateOfBirth": "1996-08-24"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": "Post the necessary fields for the API to create a new user."
+                },
+                "description": "Create a new user.",
+                "x-stoplight": {
+                    "id": "9l6x2msrgi7v4"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "title": "User",
+                "type": "object",
+                "description": "",
+                "x-examples": {
+                    "Alice Smith": {
+                        "id": 142,
+                        "firstName": "Alice",
+                        "lastName": "Smith",
+                        "email": "alice.smith@gmail.com",
+                        "dateOfBirth": "1997-10-31",
+                        "emailVerified": true,
+                        "signUpDate": "2019-08-24"
+                    },
+                    "Example 1": {
+                        "id": 0,
+                        "firstName": "yashika",
+                        "lastName": "bajaj",
+                        "email": "yashika.bajaj@example.com",
+                        "dateOfBirth": "1997-10-31",
+                        "emailVerified": true,
+                        "createDate": "2019-08-24"
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Unique identifier for the given user.",
+                        "x-stoplight": {
+                            "id": "psni5lkq7x222"
+                        }
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "x-stoplight": {
+                            "id": "b80chhnpz0vcd"
+                        }
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "x-stoplight": {
+                            "id": "q03bf0fj2cbyt"
+                        }
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "x-stoplight": {
+                            "id": "ohuuisrqjtdlu"
+                        }
+                    },
+                    "dateOfBirth": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "1997-10-31",
+                        "x-stoplight": {
+                            "id": "9t7avkefxn1pq"
+                        }
+                    },
+                    "emailVerified": {
+                        "type": "boolean",
+                        "description": "Set to true if the user's email has been verified.",
+                        "x-stoplight": {
+                            "id": "33cefjnw2nd0z"
+                        }
+                    },
+                    "createDate": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "The date that the user was created.",
+                        "x-stoplight": {
+                            "id": "mfhi6vh38c7hb"
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "emailVerified"
+                ],
+                "x-stoplight": {
+                    "id": "8uzj0vvfxmh2k"
+                }
+            },
+            "model1": {
+                "title": "model1",
+                "x-stoplight": {
+                    "id": "v2th711j8du19"
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "x-stoplight": {
+                            "id": "ezp8m32ufe4hj"
+                        },
+                        "description": "this is the id for the user schema"
+                    },
+                    "name": {
+                        "type": "string",
+                        "x-stoplight": {
+                            "id": "9n1undj6kgq52"
+                        }
+                    },
+                    "age": {
+                        "type": "string",
+                        "x-stoplight": {
+                            "id": "6gvws37058iyu"
+                        }
+                    },
+                    "status": {
+                        "type": "string",
+                        "x-stoplight": {
+                            "id": "1l2ogqoagz32s"
+                        }
+                    }
+                },
+                "description": "this is a new model"
+            }
+        }
+    },
+    "x-internal": true
+}
