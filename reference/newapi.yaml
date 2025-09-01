@@ -4,6 +4,7 @@ x-stoplight:
 info:
   title: newapi
   version: '1.0'
+  description: ADSWSCFVDGBFGNHJ
 servers:
   - url: 'http://localhost:3000'
 paths:
