@@ -71,7 +71,7 @@
                         }
                     },
                     "404": {
-                        "description": "User Not Found"
+                        "description": "User Nasdfghjyot Found"
                     },
                     "409": {
                         "description": "Email Already Taken"
