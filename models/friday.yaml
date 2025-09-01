@@ -1,0 +1,8 @@
+title: friday
+x-stoplight:
+  id: yuxbfckteewoq
+type: array
+items:
+  $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/modeldl/nodes/reference/baap.yaml/components/schemas/user1?mid=98'
+  x-stoplight:
+    id: uhvr6jbmhcmmn

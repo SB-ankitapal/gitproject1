@@ -1,0 +1,13 @@
+{
+  "title": "thursday",
+  "x-stoplight": {
+    "id": "ha5w20ccyl2vf"
+  },
+  "type": "array",
+  "items": {
+    "$ref": "https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/CarrierFee?deref=bundle&mid=83",
+    "x-stoplight": {
+      "id": "z66x7an8d7s9j"
+    }
+  }
+}

@@ -1,0 +1,438 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 9og1aq7ajnhfu
+info:
+  title: newapi
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/users/{userId}':
+    parameters:
+      - schema:
+          type: integer
+        name: userId
+        in: path
+        required: true
+        description: Id of an existing user.
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '404':
+          description: User Not Found
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      x-stoplight:
+        id: e4ej2o7r6vpc9
+    patch:
+      summary: Update User Information
+      operationId: patch-users-userId
+      responses:
+        '200':
+          description: User Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Updated User Rebecca Baker:
+                  value:
+                    id: 13
+                    firstName: Rebecca
+                    lastName: Baker
+                    email: rebecca@gmail.com
+                    dateOfBirth: '1985-10-02'
+                    emailVerified: false
+                    createDate: '2019-08-24'
+        '404':
+          description: User Not Found
+        '409':
+          description: Email Already Taken
+      description: Update the information of an existing user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                dateOfBirth:
+                  type: string
+            examples:
+              Update First Name:
+                value:
+                  firstName: Rebecca
+              Update Email:
+                value:
+                  email: rebecca@gmail.com
+              Update Last Name & Date of Birth:
+                value:
+                  lastName: Baker
+                  dateOfBirth: '1985-10-02'
+        description: Patch user properties to update.
+      x-stoplight:
+        id: ayr5w0kjvyyz1
+  /user:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                dateOfBirth:
+                  type: string
+                  format: date
+              required:
+                - firstName
+                - lastName
+                - email
+                - dateOfBirth
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      x-stoplight:
+        id: gvuug0teyyzha
+  /test:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '101':
+          description: Switching Protocols
+          content:
+            application/EDI-X12:
+              schema:
+                type: object
+                properties:
+                  mam1:
+                    type: string
+                    x-stoplight:
+                      id: we4x4xpb7k3n1
+                  mam2:
+                    type: string
+                    x-stoplight:
+                      id: p3tq6s1arkvnq
+                  mam3:
+                    $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/CarrierFee?deref=bundle&mid=132'
+                    x-stoplight:
+                      id: u32fw1xrr3kds
+      operationId: get-test
+      x-stoplight:
+        id: rey5v24tkur8n
+      requestBody:
+        content:
+          text/html:
+            schema:
+              type: object
+              properties:
+                bet1:
+                  type: string
+                  x-stoplight:
+                    id: dwf1u0pvqaocm
+                bet2:
+                  $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/Carrier?mid=128'
+                  x-stoplight:
+                    id: 939fgdloqvlc1
+    patch:
+      summary: Your PATCH endpoint
+      tags: []
+      responses:
+        '302':
+          description: Found
+          content:
+            application/xhtml+xml:
+              schema:
+                $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/Bag?mid=143'
+      operationId: patch-test
+      x-stoplight:
+        id: phyajf2q1fck1
+      requestBody:
+        content:
+          application/javascript:
+            schema:
+              $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/Aircraft?mid=139'
+    head:
+      summary: Your HEAD endpoint
+      tags: []
+      responses:
+        '510':
+          description: Not Extended
+          content:
+            application/font-woff:
+              schema:
+                type: array
+                items:
+                  $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/Carrier?deref=bundle&mid=146'
+                  x-stoplight:
+                    id: 371bs97yr8n81
+      operationId: head-test
+      x-stoplight:
+        id: 2xw5mkiffpcdg
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: array
+              items:
+                $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/AffinityDepRequest?deref=bundle&mid=145'
+                x-stoplight:
+                  id: 2h7s3k1kq0uxy
+    put:
+      summary: Your PUT endpoint
+      tags: []
+      responses:
+        '203':
+          description: Non-Authoritative Information
+          content:
+            text/html:
+              schema:
+                type: object
+                properties:
+                  dam1:
+                    type: string
+                    x-stoplight:
+                      id: yun9oaqbpf210
+                  dam2:
+                    type: object
+                    x-stoplight:
+                      id: 159ladv4i3ydl
+                    properties:
+                      dam3:
+                        type: string
+                        x-stoplight:
+                          id: dwg4men9j2bm5
+                      dam4:
+                        $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/Bdc?mid=158'
+                        x-stoplight:
+                          id: 7tka8ccwqv8pz
+      operationId: put-test
+      x-stoplight:
+        id: fa9covpw8aur7
+      requestBody:
+        content:
+          application/xop+xml:
+            schema:
+              type: object
+              properties:
+                her1:
+                  type: string
+                  x-stoplight:
+                    id: d0lws2p7io2mh
+                her2:
+                  type: string
+                  x-stoplight:
+                    id: u4loqv5ebz7f1
+                her3:
+                  type: array
+                  x-stoplight:
+                    id: w7kqzodfdaqd2
+                  items:
+                    $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/AvailablePeriod?mid=148'
+                    x-stoplight:
+                      id: 0gs8df9anfsg1
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: a0mvp0ch0i0xu
+        firstName:
+          type: string
+          x-stoplight:
+            id: 4gfmet1i640e7
+        lastName:
+          type: string
+          x-stoplight:
+            id: mru4xzqbuvyyt
+        email:
+          type: string
+          format: email
+          x-stoplight:
+            id: tu15o0trl948c
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: czy6m9mqpfa31
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: s7zkmt45rlcbl
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: zvieeluffq4zb
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      x-stoplight:
+        id: 2v7jymrnz3s7w
+    red:
+      $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/Carrier?mid=85'
+      x-stoplight:
+        id: slfumh8fv2aa9
+    orange:
+      title: orange
+      x-stoplight:
+        id: a90mnbmg413e1
+      type: object
+      properties:
+        jam1:
+          type: string
+          x-stoplight:
+            id: nrgjycegl6g9x
+        jam2:
+          type: string
+          x-stoplight:
+            id: ftpn0lqtz00cv
+        jam3:
+          type: object
+          x-stoplight:
+            id: b16kswba2xbvc
+          properties:
+            jam4:
+              type: string
+              x-stoplight:
+                id: amh9w38lux4p6
+            jam5:
+              $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iata-dl/nodes/IATA_Open_Air_JSON_Library_24.4.0 1.json/components/schemas/CarrierFee?mid=87'
+              x-stoplight:
+                id: f7h57w0ths7vt
+    yellow:
+      title: yellow
+      x-stoplight:
+        id: fajypr2o1ndgd
+      type: array
+      items:
+        $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/Aircraft?deref=bundle&mid=89'
+        x-stoplight:
+          id: q2gqivc659j9z
+    violet:
+      title: violet
+      x-stoplight:
+        id: rava3rcyfopu1
+      type: object
+      properties:
+        nam1:
+          type: string
+          x-stoplight:
+            id: z87p4e3klgnl1
+        nam2:
+          type: array
+          x-stoplight:
+            id: o1qj8xp087x8j
+          items:
+            $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/Bag?deref=bundle&mid=90'
+            x-stoplight:
+              id: 2a2uv8cjnhlhv
+    green:
+      title: green
+      x-stoplight:
+        id: 3crfgfdhjkse8
+      type: object
+      properties:
+        han1:
+          type: string
+          x-stoplight:
+            id: o6kkc5naroas9
+        han2:
+          type: object
+          x-stoplight:
+            id: 0hknniqcqbjmo
+          properties:
+            han3:
+              type: string
+              x-stoplight:
+                id: i5v77kfylkb6k
+            han4:
+              type: array
+              x-stoplight:
+                id: s03i4ualz61v9
+              items:
+                $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/modeldl/nodes/reference/baap.yaml/components/schemas/user1?deref=bundle&mid=111'
+                x-stoplight:
+                  id: dpgoo0thxiis2
+    indigo:
+      $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/modeldl/nodes/models/model1.yaml?mid=110'
+      x-stoplight:
+        id: vj8n3zgvmr9dq

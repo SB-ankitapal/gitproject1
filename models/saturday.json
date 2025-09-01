@@ -1,0 +1,41 @@
+{
+  "title": "saturday",
+  "x-stoplight": {
+    "id": "xj4yy2to42mg9"
+  },
+  "type": "object",
+  "properties": {
+    "tot1": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "b4ghulxrruewm"
+      }
+    },
+    "tot2": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "0j0pgo89extvq"
+      }
+    },
+    "tot3": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "2hj4nvt4cfylg"
+      },
+      "properties": {
+        "tot4": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "4w3pqms1d5z81"
+          }
+        },
+        "tot5": {
+          "$ref": "https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/modeldl/nodes/models/model1.yaml?mid=120",
+          "x-stoplight": {
+            "id": "hfd7ohc0hg0vu"
+          }
+        }
+      }
+    }
+  }
+}

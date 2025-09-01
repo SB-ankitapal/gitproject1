@@ -1,0 +1,22 @@
+title: tuesday
+x-stoplight:
+  id: 16y5nm3m15jzl
+type: object
+properties:
+  jim1:
+    type: string
+    x-stoplight:
+      id: gmymsid3swpfp
+  jim2:
+    type: object
+    x-stoplight:
+      id: 9wgdipm1iesc6
+    properties:
+      jim3:
+        type: string
+        x-stoplight:
+          id: n3nfz0gr45398
+      jim4:
+        $ref: 'https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iata-dl/nodes/IATA_Open_Air_JSON_Library_24.4.0 1.json/components/schemas/Carrier?mid=76'
+        x-stoplight:
+          id: hntvwzwth0ysa

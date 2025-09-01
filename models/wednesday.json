@@ -1,0 +1,13 @@
+{
+  "title": "wednesday",
+  "x-stoplight": {
+    "id": "kjwb85xa0nsvw"
+  },
+  "type": "array",
+  "items": {
+    "$ref": "https://x-20314.stoplight-dev.com/api/v1/projects/sb-testing/iataclient/nodes/IATA_Open_Air_JSON_Library_24.4.0.json/components/schemas/Carrier?deref=bundle&mid=77",
+    "x-stoplight": {
+      "id": "26g21tztq3eap"
+    }
+  }
+}
