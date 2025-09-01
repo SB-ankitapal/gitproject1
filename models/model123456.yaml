@@ -2,6 +2,13 @@ title: model123456
 x-stoplight:
   id: 1225vls2pltbh
 type: object
+examples:
+  - id: change
+    age: your
+    twin: life
+    sibling: string
+    or: string
+    '????': string
 required:
   - sibling
   - or
@@ -34,10 +41,7 @@ properties:
     type: string
     x-stoplight:
       id: lq9tvh64pa4qp
-examples:
-  - id: change
-    age: your
-    twin: life
-    sibling: string
-    or: string
-    '????': string
+  rsdtfyguhijop':
+    type: string
+    x-stoplight:
+      id: sun9q83zjza6t
