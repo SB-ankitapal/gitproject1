@@ -2,7 +2,7 @@ type: object
 title: model343543
 properties:
   id:
-    type: string
+    type: integer
   nice:
     type: string
   age:
