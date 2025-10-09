@@ -4,6 +4,7 @@ x-stoplight:
 info:
   title: carsh
   version: '1.0'
+  description: nmbhg
 servers:
   - url: 'http://localhost:3000'
 paths:
